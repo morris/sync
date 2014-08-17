@@ -1,4 +1,6 @@
-# PHP Sync
+# Sync
+
+Synchronization for PHP
 
 ```php
 <?php
@@ -29,10 +31,10 @@ Sync::call( $func, 'my/other/.lock' );
 
 ## Installation
 
-The composer package name is `morris/phpsync`. You can also download or
+The composer package name is `morris/sync`. You can also download or
 fork the repository.
 
 
 ## License
 
-PHP Sync is licensed under the MIT License. See `LICENSE.md` for details.
+Sync is licensed under the MIT License. See `LICENSE.md` for details.
