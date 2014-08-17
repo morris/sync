@@ -5,7 +5,7 @@ require_once 'vendor/autoload.php';
 /**
  * @runInSeparateProcess
  */
-class DatabaseTest extends PHPUnit_Framework_TestCase {
+class SyncTest extends PHPUnit_Framework_TestCase {
 
 	static function setupBeforeClass() {
 

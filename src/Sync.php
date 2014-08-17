@@ -1,7 +1,8 @@
 <?php
 
 /**
- * Provides a method to call synchronized functions, locking on files.
+ * Provides a static method to call functions synchronously using
+ * lockfiles.
  */
 class Sync {
 
@@ -11,7 +12,7 @@ class Sync {
 	public static $lock = '.lock';
 
 	/**
-	 * Call a function in a mutually exclusive way, locking on files.
+	 * Call a function in a mutually exclusive way using a lockfile.
 	 * A process will only block other processes and never block itself,
 	 * so you can safely nest synchronized operations.
 	 */
