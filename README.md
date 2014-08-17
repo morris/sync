@@ -1,8 +1,6 @@
 # PHP Sync
 
-## Usage
-
-```
+```php
 <?php
 
 // Call a function in a mutually exclusive way using a lockfile.

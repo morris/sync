@@ -87,8 +87,8 @@ class SyncTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-     * @expectedException InvalidArgumentException
-     */
+	 * @expectedException InvalidArgumentException
+	 */
 	function testException() {
 
 		Sync::call( function() {
