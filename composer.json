@@ -1,9 +1,9 @@
 {
-	"name": "morris/phpsync",
+	"name": "morris/sync",
 	"description": "Synchronized function calls for PHP",
 	"keywords": ["synchronized", "synchronization", "concurrency"],
 	"license": "MIT",
-	"homepage": "http://github.com/morris/phpsync",
+	"homepage": "http://github.com/morris/sync",
 	"authors": [
 		{
 			"name": "Morris Brodersen",
