@@ -1,6 +1,4 @@
-# Sync
-
-Synchronization for PHP
+# Synchronization for PHP
 
 ```php
 <?php

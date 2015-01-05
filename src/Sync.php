@@ -18,22 +18,11 @@ class Sync {
 	 */
 	public static function call( $func, $lock = null ) {
 
-		// fall back to default lock
-
-		if ( !isset( $lock ) ) {
-
-			$lock = self::$lock;
-
-		}
-
-		// get absolute path
-
-		touch( $lock );
-		$lock = realpath( $lock );
+		$lock = self::path( $lock );
 
 		// just call function if lock already acquired
 
-		if ( in_array( $lock, self::$locks ) ) {
+		if ( isset( self::$locks[ $lock ] ) ) {
 
 			return $func();
 
@@ -47,11 +36,7 @@ class Sync {
 
 			if ( !$handle || !flock( $handle, LOCK_EX ) ) {
 
-				throw new \Exception(
-
-					'Unable to synchronize over "'. $lock . '"'
-
-				);
+				throw new \RuntimeException( 'Unable to lock on "' . $lock . '"' );
 
 			}
 
@@ -69,11 +54,7 @@ class Sync {
 
 			// release lock and rethrow any exception
 
-			if ( isset( $handle ) ) {
-
-				self::release( $lock, $handle );
-
-			}
+			self::release( $lock, $handle );
 
 			throw $e;
 
@@ -81,9 +62,26 @@ class Sync {
 
 	}
 
+	/**
+	 * Get absolute path to a lock file
+	 */
+	public static function path( $lock = null ) {
+
+		if ( !isset( $lock ) ) {
+
+			$lock = self::$lock;
+
+		}
+
+		if ( !is_file( $lock ) ) touch( $lock );
+
+		return realpath( $lock );
+
+	}
+
 	private static function release( $lock, $handle ) {
 
-		self::$locks[ $lock ] = false;
+		unset( self::$locks[ $lock ] );
 
 		if ( $handle ) {
 

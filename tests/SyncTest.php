@@ -46,7 +46,7 @@ class SyncTest extends PHPUnit_Framework_TestCase {
 
 			}
 
-			Sync::call( function() use (&$a) {
+			Sync::call( function() use ( &$a ) {
 
 				$a[] = 'nested';
 
